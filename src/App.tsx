@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import {
   AppBar,
   Box,
@@ -321,11 +321,26 @@ const EMPLOYEE_FILTER_CONFIG: FilterConfig[] = [
 
 // ─── App ──────────────────────────────────────────────────────────────────────
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const employees = employeesData as any as Employee[];
-
 function AppContent() {
-  const [isLoading] = useState(false);
+  const [employees, setEmployees] = useState<Employee[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    fetch('http://localhost:4000/employees')
+      .then((res) => {
+        if (!res.ok) throw new Error('Failed to fetch from mock API');
+        return res.json();
+      })
+      .then((data) => {
+        setEmployees(data);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        console.warn('Mock API not available, falling back to static JSON data.', err);
+        setEmployees(employeesData as any as Employee[]);
+        setIsLoading(false);
+      });
+  }, []);
 
   const { conditions, filteredData, addCondition, updateCondition, removeCondition, clearAll } =
     useFilterEngine<Employee>(EMPLOYEE_FILTER_CONFIG, employees);
