@@ -17,13 +17,13 @@ import { OPERATOR_MAP } from '../../registry/operators';
 // ─── Type color dots ──────────────────────────────────────────────────────────
 
 const TYPE_DOT_COLOR: Record<FieldType, string> = {
-  text:        '#60A5FA', // blue
-  number:      '#34D399', // green
-  date:        '#A78BFA', // purple
-  amount:      '#10B981', // emerald
-  select:      '#F472B6', // pink
-  multiselect: '#C084FC', // violet
-  boolean:     '#FB923C', // orange
+  text:        '#3B82F6', // blue-500
+  number:      '#10B981', // emerald-500
+  date:        '#8B5CF6', // violet-500
+  amount:      '#059669', // emerald-600
+  select:      '#EC4899', // pink-500
+  multiselect: '#A855F7', // purple-500
+  boolean:     '#F97316', // orange-500
 };
 
 interface FilterRowProps {
@@ -63,12 +63,12 @@ const FilterRow: React.FC<FilterRowProps> = ({
         display: 'flex', alignItems: 'center', gap: 1.25,
         p: 1.25, pr: 1,
         borderRadius: '10px',
-        bgcolor: '#1C1F2B',
-        border: '1px solid rgba(255,255,255,0.06)',
+        bgcolor: '#F9FAFB',
+        border: '1px solid #E5E7EB',
         transition: 'border-color 0.2s, box-shadow 0.2s',
         '&:hover': {
-          borderColor: 'rgba(108,99,255,0.3)',
-          boxShadow: '0 0 0 1px rgba(108,99,255,0.12)',
+          borderColor: '#BFDBFE',
+          boxShadow: '0 0 0 1px #DBEAFE',
         },
       }}
     >
@@ -135,11 +135,11 @@ const FilterRow: React.FC<FilterRowProps> = ({
           aria-label="Remove filter condition"
           className="ff-trash"
           sx={{
-            color: 'rgba(255,255,255,0.25)',
+            color: '#9CA3AF',
             borderRadius: 1.5,
             '&:hover': {
-              bgcolor: 'rgba(239,68,68,0.1)',
-              color: '#ef4444',
+              bgcolor: '#FEE2E2',
+              color: '#DC2626',
             },
           }}
         >
