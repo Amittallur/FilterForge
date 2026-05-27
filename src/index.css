@@ -1,0 +1,136 @@
+/* Google Fonts — Inter */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+/* ─── CSS Custom Properties ────────────────────────────────────────────────── */
+:root {
+  --accent:       #2563EB;
+  --accent-blue:  #1D4ED8;
+  --surface:      #FFFFFF;
+  --elevated:     #F9FAFB;
+  --border-faint: #F3F4F6;
+  --border-mid:   #E5E7EB;
+}
+
+/* ─── Global Reset ─────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #F3F4F6;
+  color: #111827;
+}
+
+/* ─── Scrollbars ───────────────────────────────────────────────────────────── */
+::-webkit-scrollbar            { width: 5px; height: 5px; }
+::-webkit-scrollbar-track      { background: rgba(0,0,0,0.03); border-radius: 4px; }
+::-webkit-scrollbar-thumb      { background: rgba(0,0,0,0.15); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover{ background: rgba(0,0,0,0.25); }
+
+/* ─── Keyframes ────────────────────────────────────────────────────────────── */
+
+@keyframes filterRowSlideIn {
+  from { opacity: 0; transform: translateX(-12px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes pulseRing {
+  0%   { transform: scale(1);   opacity: 0.65; }
+  100% { transform: scale(2.5); opacity: 0; }
+}
+
+@keyframes trashShake {
+  0%, 100% { transform: rotate(0deg); }
+  25%       { transform: rotate(-8deg); }
+  75%       { transform: rotate(8deg); }
+}
+
+@keyframes countSlideUp {
+  from { opacity: 0.2; transform: translateY(5px); }
+  to   { opacity: 1;   transform: translateY(0); }
+}
+
+@keyframes progressExpand {
+  from { width: 0%; }
+}
+
+@keyframes logoFloat {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-2.5px); }
+}
+
+@keyframes chipPop {
+  from { opacity: 0; transform: scale(0.8); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* ─── Utility Classes ──────────────────────────────────────────────────────── */
+
+/* Filter row slide-in */
+.ff-filter-row {
+  animation: filterRowSlideIn 80ms ease-out both;
+}
+
+/* Logo icon float */
+.ff-logo {
+  animation: logoFloat 3.5s ease-in-out infinite;
+  display: flex;
+}
+
+/* Active employee pulse ring */
+.ff-pulse {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.ff-pulse::after {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  background: #22c55e;
+  animation: pulseRing 1.8s ease-out infinite;
+  pointer-events: none;
+}
+
+/* Count up slide animation  */
+.ff-count {
+  display: inline-block;
+  animation: countSlideUp 0.3s ease-out both;
+}
+
+/* Progress bar expand */
+.ff-progress {
+  animation: progressExpand 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+/* Chip pop-in */
+.ff-chip {
+  animation: chipPop 120ms ease-out both;
+}
+
+/* Trash shake + red on hover */
+.ff-trash:hover {
+  color: #ef4444 !important;
+}
+.ff-trash:hover .ff-trash-icon {
+  animation: trashShake 0.28s ease;
+}
+
+/* Salary gradient text */
+.ff-salary {
+  background: linear-gradient(135deg, #059669 0%, #10B981 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+/* MUI input focus glow — applied globally via theme but reinforced here */
+.MuiOutlinedInput-root.Mui-focused > .MuiOutlinedInput-notchedOutline {
+  box-shadow: 0 0 0 2.5px rgba(37, 99, 235, 0.2) !important;
+}
