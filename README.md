@@ -2,6 +2,8 @@
 
 > A production-grade, configuration-driven dynamic filter engine for data tables — built with React 18, TypeScript, Vite, and Material UI v5.
 
+**Live Demo:** [https://filterforge.netlify.app/](https://filterforge.netlify.app/)
+
 ---
 
 ## Setup
