@@ -119,7 +119,7 @@ const FilterRow: React.FC<FilterRowProps> = ({
       </FormControl>
 
       {/* Dynamic value input — resolved from registry, no switch-on-type */}
-      <Box sx={{ flex: 1, minWidth: 180 }}>
+      <Box sx={{ flex: 1, minWidth: 180, maxWidth: 350 }}>
         <InputComponent
           condition={condition}
           config={currentConfig}
