@@ -45,12 +45,12 @@ function hashToHsl(str: string): string {
 
 /** 6 preset color pairs for skill tags */
 const SKILL_PALETTE = [
-  { bg: 'rgba(108,99,255,0.16)', color: '#a5b4fc' },
-  { bg: 'rgba(16,185,129,0.16)', color: '#6ee7b7' },
-  { bg: 'rgba(245,158,11,0.16)', color: '#fcd34d' },
-  { bg: 'rgba(236,72,153,0.16)', color: '#f9a8d4' },
-  { bg: 'rgba(59,130,246,0.16)', color: '#93c5fd' },
-  { bg: 'rgba(168,85,247,0.16)', color: '#d8b4fe' },
+  { bg: '#DBEAFE', color: '#1E40AF' },
+  { bg: '#D1FAE5', color: '#065F46' },
+  { bg: '#FEF3C7', color: '#92400E' },
+  { bg: '#FCE7F3', color: '#9D174D' },
+  { bg: '#E0E7FF', color: '#3730A3' },
+  { bg: '#F3E8FF', color: '#6B21A8' },
 ] as const;
 
 function hashSkillColor(skill: string) {
@@ -61,19 +61,19 @@ function hashSkillColor(skill: string) {
 
 /** Department gradient badges */
 const DEPT_STYLE: Record<string, { bg: string; color: string; glow: string }> = {
-  Engineering: { bg: 'linear-gradient(135deg,rgba(108,99,255,0.22),rgba(59,130,246,0.22))',  color: '#a5b4fc', glow: 'rgba(108,99,255,0.4)' },
-  Marketing:   { bg: 'linear-gradient(135deg,rgba(236,72,153,0.22),rgba(244,63,94,0.22))',   color: '#f9a8d4', glow: 'rgba(236,72,153,0.4)' },
-  Design:      { bg: 'linear-gradient(135deg,rgba(16,185,129,0.22),rgba(5,150,105,0.22))',   color: '#6ee7b7', glow: 'rgba(16,185,129,0.4)' },
-  Finance:     { bg: 'linear-gradient(135deg,rgba(245,158,11,0.22),rgba(217,119,6,0.22))',   color: '#fcd34d', glow: 'rgba(245,158,11,0.4)' },
-  HR:          { bg: 'linear-gradient(135deg,rgba(59,130,246,0.22),rgba(37,99,235,0.22))',   color: '#93c5fd', glow: 'rgba(59,130,246,0.4)' },
+  Engineering: { bg: 'linear-gradient(135deg, #DBEAFE, #EFF6FF)',  color: '#1D4ED8', glow: 'rgba(37,99,235,0.2)' },
+  Marketing:   { bg: 'linear-gradient(135deg, #FCE7F3, #FDF2F8)',  color: '#BE185D', glow: 'rgba(219,39,119,0.2)' },
+  Design:      { bg: 'linear-gradient(135deg, #D1FAE5, #ECFDF5)',  color: '#047857', glow: 'rgba(5,150,105,0.2)' },
+  Finance:     { bg: 'linear-gradient(135deg, #FEF3C7, #FFFBEB)',  color: '#B45309', glow: 'rgba(217,119,6,0.2)' },
+  HR:          { bg: 'linear-gradient(135deg, #E0E7FF, #EEF2FF)',  color: '#4338CA', glow: 'rgba(79,70,229,0.2)' },
 };
 
 /** Rating color + ratingScale */
 function ratingStyle(r: number): { color: string; bg: string } {
-  if (r >= 4.5) return { color: '#F59E0B', bg: 'rgba(245,158,11,0.15)' };
-  if (r >= 4.0) return { color: '#10B981', bg: 'rgba(16,185,129,0.15)' };
-  if (r >= 3.5) return { color: '#F97316', bg: 'rgba(249,115,22,0.15)' };
-  return          { color: '#EF4444', bg: 'rgba(239,68,68,0.15)' };
+  if (r >= 4.5) return { color: '#B45309', bg: '#FEF3C7' };
+  if (r >= 4.0) return { color: '#047857', bg: '#D1FAE5' };
+  if (r >= 3.5) return { color: '#C2410C', bg: '#FFEDD5' };
+  return          { color: '#B91C1C', bg: '#FEE2E2' };
 }
 
 // ─── CountUp hook ─────────────────────────────────────────────────────────────
@@ -135,7 +135,7 @@ function renderCell(col: ColumnDef, row: Employee): React.ReactNode {
             <Typography variant="body2" sx={{ fontWeight: 600, color: 'text.primary', lineHeight: 1.2 }} noWrap>
               {name}
             </Typography>
-            <Typography variant="caption" sx={{ color: 'text.disabled', lineHeight: 1.2, display: 'block' }} noWrap>
+            <Typography variant="caption" sx={{ color: 'text.secondary', lineHeight: 1.2, display: 'block' }} noWrap>
               {row.email}
             </Typography>
           </Box>
@@ -158,12 +158,12 @@ function renderCell(col: ColumnDef, row: Employee): React.ReactNode {
           {raw ? (
             <Tooltip title="Active" placement="top">
               <Box className="ff-pulse">
-                <Box sx={{ width: 8, height: 8, borderRadius: '50%', bgcolor: '#22c55e', position: 'relative', zIndex: 1 }} />
+                <Box sx={{ width: 8, height: 8, borderRadius: '50%', bgcolor: '#10B981', position: 'relative', zIndex: 1 }} />
               </Box>
             </Tooltip>
           ) : (
             <Tooltip title="Inactive" placement="top">
-              <Box sx={{ width: 8, height: 8, borderRadius: '50%', bgcolor: 'rgba(255,255,255,0.18)' }} />
+              <Box sx={{ width: 8, height: 8, borderRadius: '50%', bgcolor: '#E5E7EB' }} />
             </Tooltip>
           )}
         </Box>
@@ -183,7 +183,7 @@ function renderCell(col: ColumnDef, row: Employee): React.ReactNode {
             color: ds.color,
             fontSize: '0.7rem', fontWeight: 700,
             whiteSpace: 'nowrap',
-            border: `1px solid ${ds.glow.replace('0.4', '0.22')}`,
+            border: `1px solid ${ds.glow}`,
             transition: 'box-shadow 0.2s',
             '&:hover': { boxShadow: `0 0 10px ${ds.glow}` },
           }}
@@ -215,7 +215,7 @@ function renderCell(col: ColumnDef, row: Employee): React.ReactNode {
                 key={i}
                 sx={{
                   width: 5, height: 5, borderRadius: '50%',
-                  bgcolor: i < filled ? rs.color : 'rgba(255,255,255,0.1)',
+                  bgcolor: i < filled ? rs.color : '#E5E7EB',
                   transition: 'background-color 0.2s',
                 }}
               />
@@ -241,7 +241,7 @@ function renderCell(col: ColumnDef, row: Employee): React.ReactNode {
                   bgcolor: sc.bg, color: sc.color,
                   fontSize: '0.62rem', fontWeight: 600,
                   whiteSpace: 'nowrap',
-                  border: `1px solid ${sc.color}28`,
+                  border: `1px solid ${sc.color}40`,
                 }}
               >
                 {s}
@@ -253,7 +253,7 @@ function renderCell(col: ColumnDef, row: Employee): React.ReactNode {
               sx={{
                 px: 0.75, py: 0.15,
                 borderRadius: 10,
-                bgcolor: 'rgba(255,255,255,0.05)', color: 'text.disabled',
+                bgcolor: '#F3F4F6', color: 'text.secondary',
                 fontSize: '0.62rem', fontWeight: 600, whiteSpace: 'nowrap',
               }}
             >
@@ -350,9 +350,9 @@ const DataTable: React.FC<DataTableProps> = ({ data, totalCount, activeFilterCou
       sx={{
         borderRadius: '16px',
         overflow: 'hidden',
-        border: '1px solid rgba(255,255,255,0.06)',
-        boxShadow: '0 4px 28px rgba(0,0,0,0.45)',
-        bgcolor: '#13151C',
+        border: '1px solid #E5E7EB',
+        boxShadow: '0 4px 12px rgba(0,0,0,0.05)',
+        bgcolor: '#FFFFFF',
       }}
     >
       {/* ── Toolbar ── */}
@@ -360,8 +360,8 @@ const DataTable: React.FC<DataTableProps> = ({ data, totalCount, activeFilterCou
         sx={{
           display: 'flex', alignItems: 'center', justifyContent: 'space-between',
           px: 2.5, py: 1.5,
-          borderBottom: '1px solid rgba(255,255,255,0.06)',
-          background: 'linear-gradient(180deg, rgba(28,31,43,0.6) 0%, transparent 100%)',
+          borderBottom: '1px solid #E5E7EB',
+          background: 'linear-gradient(180deg, #F9FAFB 0%, #FFFFFF 100%)',
         }}
       >
         {/* Record count + progress */}
@@ -374,7 +374,7 @@ const DataTable: React.FC<DataTableProps> = ({ data, totalCount, activeFilterCou
               className="ff-count"
               sx={{
                 fontWeight: 800,
-                color: data.length < totalCount ? '#6C63FF' : 'text.primary',
+                color: data.length < totalCount ? '#2563EB' : 'text.primary',
                 fontSize: '1rem',
               }}
             >
@@ -394,14 +394,14 @@ const DataTable: React.FC<DataTableProps> = ({ data, totalCount, activeFilterCou
 
           {/* Progress bar */}
           {data.length < totalCount && (
-            <Box sx={{ mt: 0.75, height: 2, width: 240, bgcolor: 'rgba(255,255,255,0.06)', borderRadius: 1, overflow: 'hidden' }}>
+            <Box sx={{ mt: 0.75, height: 2, width: 240, bgcolor: '#E5E7EB', borderRadius: 1, overflow: 'hidden' }}>
               <Box
                 className="ff-progress"
                 key={`pb-${data.length}`}
                 sx={{
                   height: '100%',
                   width: `${progressPct}%`,
-                  background: 'linear-gradient(90deg, #6C63FF, #3B82F6)',
+                  background: 'linear-gradient(90deg, #2563EB, #60A5FA)',
                   borderRadius: 1,
                   transition: 'width 0.4s cubic-bezier(0.34,1.56,0.64,1)',
                 }}
@@ -422,13 +422,13 @@ const DataTable: React.FC<DataTableProps> = ({ data, totalCount, activeFilterCou
             borderRadius: 20,
             fontSize: '0.75rem',
             px: 2, py: 0.6,
-            borderColor: exportDone ? 'rgba(34,197,94,0.4)' : 'rgba(255,255,255,0.12)',
-            color: exportDone ? '#4ade80' : 'text.secondary',
+            borderColor: exportDone ? 'rgba(16,185,129,0.4)' : '#E5E7EB',
+            color: exportDone ? '#10B981' : 'text.secondary',
             transition: 'all 0.2s ease',
             '&:hover': {
-              borderColor: exportDone ? 'rgba(34,197,94,0.6)' : '#6C63FF',
-              color: exportDone ? '#4ade80' : '#a5b4fc',
-              bgcolor: exportDone ? 'rgba(34,197,94,0.08)' : 'rgba(108,99,255,0.08)',
+              borderColor: exportDone ? 'rgba(16,185,129,0.6)' : '#2563EB',
+              color: exportDone ? '#10B981' : '#1D4ED8',
+              bgcolor: exportDone ? 'rgba(16,185,129,0.08)' : '#EFF6FF',
             },
           }}
         >
@@ -447,12 +447,12 @@ const DataTable: React.FC<DataTableProps> = ({ data, totalCount, activeFilterCou
           <Box
             sx={{
               width: 72, height: 72, borderRadius: '50%',
-              bgcolor: 'rgba(108,99,255,0.08)',
-              border: '1px solid rgba(108,99,255,0.15)',
+              bgcolor: '#EFF6FF',
+              border: '1px solid #BFDBFE',
               display: 'flex', alignItems: 'center', justifyContent: 'center',
             }}
           >
-            <FilterX size={32} strokeWidth={1.5} style={{ color: 'rgba(108,99,255,0.5)' }} />
+            <FilterX size={32} strokeWidth={1.5} style={{ color: '#2563EB' }} />
           </Box>
           <Box sx={{ textAlign: 'center' }}>
             <Typography variant="h6" sx={{ fontWeight: 700, color: 'text.secondary', mb: 0.5 }}>
@@ -475,11 +475,11 @@ const DataTable: React.FC<DataTableProps> = ({ data, totalCount, activeFilterCou
                   <TableRow
                     key={row.id}
                     sx={{
-                      bgcolor: idx % 2 === 0 ? '#0F1117' : '#13151C',
+                      bgcolor: idx % 2 === 0 ? '#FFFFFF' : '#F9FAFB',
                       transition: 'background-color 0.15s, box-shadow 0.15s',
                       '&:hover': {
-                        bgcolor: 'rgba(108,99,255,0.05)',
-                        boxShadow: 'inset 3px 0 0 #6C63FF',
+                        bgcolor: '#F3F4F6',
+                        boxShadow: 'inset 3px 0 0 #2563EB',
                       },
                       '&:last-child td': { borderBottom: 0 },
                     }}
@@ -508,8 +508,8 @@ const DataTable: React.FC<DataTableProps> = ({ data, totalCount, activeFilterCou
             onRowsPerPageChange={handleChangeRowsPerPage}
             rowsPerPageOptions={[10, 25, 50]}
             sx={{
-              borderTop: '1px solid rgba(255,255,255,0.06)',
-              bgcolor: 'rgba(28,31,43,0.5)',
+              borderTop: '1px solid #E5E7EB',
+              bgcolor: '#F9FAFB',
             }}
           />
         </>

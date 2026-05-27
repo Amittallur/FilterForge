@@ -68,10 +68,10 @@ const FilterBuilder: React.FC<FilterBuilderProps> = ({
         sx={{
           borderRadius: '14px',
           overflow: 'hidden',
-          border: '1px solid rgba(108,99,255,0.2)',
-          borderLeft: '4px solid #6C63FF',
-          bgcolor: '#13151C',
-          boxShadow: activeCount > 0 ? '0 0 24px rgba(108,99,255,0.08)' : 'none',
+          border: '1px solid #E5E7EB',
+          borderLeft: '4px solid #2563EB',
+          bgcolor: '#FFFFFF',
+          boxShadow: activeCount > 0 ? '0 4px 12px rgba(37,99,235,0.1)' : 'none',
           transition: 'box-shadow 0.3s ease',
         }}
       >
@@ -81,8 +81,8 @@ const FilterBuilder: React.FC<FilterBuilderProps> = ({
             display: 'flex', alignItems: 'center', justifyContent: 'space-between',
             px: 2.5, py: 1.5,
             cursor: 'pointer', userSelect: 'none',
-            background: 'linear-gradient(90deg, rgba(108,99,255,0.06) 0%, transparent 60%)',
-            '&:hover': { bgcolor: 'rgba(108,99,255,0.05)' },
+            background: 'linear-gradient(90deg, #F9FAFB 0%, #FFFFFF 60%)',
+            '&:hover': { bgcolor: '#F3F4F6' },
             transition: 'background-color 0.15s',
           }}
           onClick={() => setIsOpen((v) => !v)}
@@ -95,12 +95,12 @@ const FilterBuilder: React.FC<FilterBuilderProps> = ({
             <Box
               sx={{
                 width: 28, height: 28, borderRadius: 1.5,
-                background: 'linear-gradient(135deg, rgba(108,99,255,0.25), rgba(59,130,246,0.25))',
-                border: '1px solid rgba(108,99,255,0.3)',
+                background: '#EFF6FF',
+                border: '1px solid #BFDBFE',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
               }}
             >
-              <Filter size={13} style={{ color: '#a5b4fc' }} />
+              <Filter size={13} style={{ color: '#2563EB' }} />
             </Box>
 
             <Typography variant="subtitle2" sx={{ fontWeight: 700, color: 'text.primary' }}>
@@ -112,11 +112,11 @@ const FilterBuilder: React.FC<FilterBuilderProps> = ({
                 sx={{
                   px: 0.9, py: 0.1,
                   borderRadius: 10,
-                  background: 'linear-gradient(135deg, #6C63FF, #3B82F6)',
+                  background: '#2563EB',
                   color: '#fff',
                   fontSize: '0.65rem', fontWeight: 800,
                   lineHeight: 1.7,
-                  boxShadow: '0 0 8px rgba(108,99,255,0.45)',
+                  boxShadow: '0 2px 4px rgba(37,99,235,0.3)',
                   minWidth: 18, textAlign: 'center',
                 }}
               >
@@ -137,8 +137,8 @@ const FilterBuilder: React.FC<FilterBuilderProps> = ({
                 aria-label="Clear all filters"
                 sx={{
                   fontSize: '0.72rem', py: 0.4, px: 1,
-                  color: 'rgba(239,68,68,0.7)',
-                  '&:hover': { color: '#ef4444', bgcolor: 'rgba(239,68,68,0.08)' },
+                  color: '#DC2626',
+                  '&:hover': { color: '#B91C1C', bgcolor: '#FEE2E2' },
                   borderRadius: 10,
                 }}
               >
@@ -156,12 +156,13 @@ const FilterBuilder: React.FC<FilterBuilderProps> = ({
                 borderRadius: 20,
                 fontSize: '0.72rem',
                 py: 0.55, px: 1.5,
-                background: 'linear-gradient(135deg, #6C63FF 0%, #3B82F6 100%)',
-                boxShadow: 'none',
+                background: 'linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%)',
+                color: '#fff',
+                boxShadow: '0 1px 2px rgba(0,0,0,0.05)',
                 '&:hover': {
-                  background: 'linear-gradient(135deg, #5a52e8 0%, #2d74e7 100%)',
-                  boxShadow: '0 0 14px rgba(108,99,255,0.45)',
-                  transform: 'scale(1.03)',
+                  background: 'linear-gradient(135deg, #1D4ED8 0%, #1E40AF 100%)',
+                  boxShadow: '0 4px 12px rgba(37,99,235,0.25)',
+                  transform: 'scale(1.02)',
                 },
               }}
             >
@@ -183,7 +184,7 @@ const FilterBuilder: React.FC<FilterBuilderProps> = ({
 
         {/* Filter rows */}
         <Collapse in={isOpen && activeCount > 0}>
-          <Divider sx={{ borderColor: 'rgba(108,99,255,0.15)' }} />
+          <Divider sx={{ borderColor: '#E5E7EB' }} />
           <Stack spacing={1.25} sx={{ p: 2 }}>
             {conditions.map((condition) => (
               <FilterRow

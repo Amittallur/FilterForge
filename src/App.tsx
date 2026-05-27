@@ -21,25 +21,25 @@ import employeesData from './data/employees.json';
 
 const theme = createTheme({
   palette: {
-    mode: 'dark',
+    mode: 'light',
     primary: {
-      main:  '#6C63FF',
-      light: '#a5b4fc',
-      dark:  '#4f46e5',
+      main:  '#2563EB',
+      light: '#60A5FA',
+      dark:  '#1D4ED8',
     },
-    secondary: { main: '#3B82F6' },
+    secondary: { main: '#0F766E' },
     background: {
-      default: '#0A0B0F',
-      paper:   '#13151C',
+      default: '#F3F4F6',
+      paper:   '#FFFFFF',
     },
-    divider: 'rgba(255,255,255,0.06)',
+    divider: '#E5E7EB',
     text: {
-      primary:   '#F1F5F9',
-      secondary: '#94A3B8',
-      disabled:  '#475569',
+      primary:   '#111827',
+      secondary: '#4B5563',
+      disabled:  '#9CA3AF',
     },
-    success: { main: '#22c55e', light: '#4ade80' },
-    error:   { main: '#ef4444', light: '#fca5a5', dark: '#7f1d1d' },
+    success: { main: '#10B981', light: '#34D399' },
+    error:   { main: '#EF4444', light: '#F87171', dark: '#B91C1C' },
   },
   typography: {
     fontFamily: '"Inter", "Segoe UI", Roboto, sans-serif',
@@ -52,36 +52,36 @@ const theme = createTheme({
   shape: { borderRadius: 10 },
   components: {
     MuiCssBaseline: {
-      styleOverrides: { body: { backgroundColor: '#0A0B0F' } },
+      styleOverrides: { body: { backgroundColor: '#F3F4F6' } },
     },
     MuiPaper: {
       styleOverrides: {
         root: {
           backgroundImage: 'none',
-          backgroundColor: '#13151C',
-          border: '1px solid rgba(255,255,255,0.06)',
+          backgroundColor: '#FFFFFF',
+          border: '1px solid #E5E7EB',
         },
       },
     },
     MuiOutlinedInput: {
       styleOverrides: {
         root: {
-          backgroundColor: '#1C1F2B',
+          backgroundColor: '#F9FAFB',
           borderRadius: '8px',
           fontSize: '0.875rem',
-          transition: 'box-shadow 0.18s',
+          transition: 'box-shadow 0.18s, border-color 0.18s',
           '& .MuiOutlinedInput-notchedOutline': {
-            borderColor: 'rgba(255,255,255,0.08)',
+            borderColor: '#E5E7EB',
             transition: 'border-color 0.18s',
           },
           '&:hover .MuiOutlinedInput-notchedOutline': {
-            borderColor: 'rgba(255,255,255,0.18)',
+            borderColor: '#D1D5DB',
           },
           '&.Mui-focused': {
-            boxShadow: '0 0 0 2.5px rgba(108,99,255,0.28)',
+            boxShadow: '0 0 0 2.5px rgba(37,99,235,0.2)',
           },
           '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-            borderColor: '#6C63FF',
+            borderColor: '#2563EB',
             borderWidth: '1px',
           },
         },
@@ -91,35 +91,36 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           fontSize: '0.85rem',
-          color: 'rgba(255,255,255,0.35)',
-          '&.Mui-focused': { color: '#6C63FF' },
+          color: '#6B7280',
+          '&.Mui-focused': { color: '#2563EB' },
         },
       },
     },
     MuiSelect: {
       styleOverrides: {
         root: { fontSize: '0.875rem' },
-        icon: { color: 'rgba(255,255,255,0.3)' },
+        icon: { color: '#6B7280' },
       },
     },
     MuiMenuItem: {
       styleOverrides: {
         root: {
           fontSize: '0.875rem',
+          color: '#111827',
           '&.Mui-selected': {
-            backgroundColor: 'rgba(108,99,255,0.15)',
-            '&:hover': { backgroundColor: 'rgba(108,99,255,0.22)' },
+            backgroundColor: '#EFF6FF',
+            '&:hover': { backgroundColor: '#DBEAFE' },
           },
-          '&:hover': { backgroundColor: 'rgba(255,255,255,0.05)' },
+          '&:hover': { backgroundColor: '#F3F4F6' },
         },
       },
     },
     MuiMenu: {
       styleOverrides: {
         paper: {
-          backgroundColor: '#1C1F2B',
-          border: '1px solid rgba(255,255,255,0.08)',
-          boxShadow: '0 8px 32px rgba(0,0,0,0.5)',
+          backgroundColor: '#FFFFFF',
+          border: '1px solid #E5E7EB',
+          boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
         },
       },
     },
@@ -133,19 +134,23 @@ const theme = createTheme({
           '&:active': { transform: 'scale(0.97)' },
         },
         contained: {
-          background: 'linear-gradient(135deg, #6C63FF 0%, #3B82F6 100%)',
-          boxShadow: 'none',
+          background: 'linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%)',
+          color: '#FFFFFF',
+          boxShadow: '0 1px 2px rgba(0,0,0,0.05)',
           '&:hover': {
-            background: 'linear-gradient(135deg, #5a52e8 0%, #2d74e7 100%)',
-            boxShadow: '0 0 16px rgba(108,99,255,0.4)',
+            background: 'linear-gradient(135deg, #1D4ED8 0%, #1E40AF 100%)',
+            boxShadow: '0 4px 12px rgba(37,99,235,0.25)',
             transform: 'scale(1.02)',
           },
         },
         outlined: {
-          borderColor: 'rgba(255,255,255,0.12)',
+          borderColor: '#E5E7EB',
+          color: '#4B5563',
+          backgroundColor: '#FFFFFF',
           '&:hover': {
-            borderColor: '#6C63FF',
-            backgroundColor: 'rgba(108,99,255,0.08)',
+            borderColor: '#2563EB',
+            backgroundColor: '#EFF6FF',
+            color: '#1D4ED8',
           },
         },
       },
@@ -164,13 +169,13 @@ const theme = createTheme({
           fontWeight: 600,
           fontSize: '0.72rem',
           height: 26,
-          backgroundColor: 'rgba(108,99,255,0.12)',
-          border: '1px solid rgba(108,99,255,0.35)',
-          color: '#a5b4fc',
+          backgroundColor: '#EFF6FF',
+          border: '1px solid #BFDBFE',
+          color: '#1D4ED8',
           '& .MuiChip-deleteIcon': {
-            color: 'rgba(165,180,252,0.6)',
+            color: '#93C5FD',
             fontSize: '14px',
-            '&:hover': { color: '#ef4444' },
+            '&:hover': { color: '#EF4444' },
           },
         },
       },
@@ -178,17 +183,17 @@ const theme = createTheme({
     MuiTableCell: {
       styleOverrides: {
         head: {
-          backgroundColor: '#1C1F2B',
-          color: 'rgba(255,255,255,0.38)',
+          backgroundColor: '#F9FAFB',
+          color: '#6B7280',
           fontSize: '0.68rem',
           fontWeight: 700,
           textTransform: 'uppercase',
-          letterSpacing: '0.09em',
-          borderBottom: '1px solid rgba(255,255,255,0.06)',
+          letterSpacing: '0.05em',
+          borderBottom: '1px solid #E5E7EB',
           padding: '10px 16px',
         },
         body: {
-          borderColor: 'rgba(255,255,255,0.04)',
+          borderColor: '#F3F4F6',
           padding: '10px 16px',
         },
       },
@@ -196,11 +201,11 @@ const theme = createTheme({
     MuiTableSortLabel: {
       styleOverrides: {
         root: {
-          color: 'rgba(255,255,255,0.38)',
-          '&:hover': { color: 'rgba(255,255,255,0.7)' },
+          color: '#6B7280',
+          '&:hover': { color: '#111827' },
           '&.Mui-active': {
-            color: '#6C63FF',
-            textShadow: '0 0 8px rgba(108,99,255,0.5)',
+            color: '#2563EB',
+            textShadow: 'none',
           },
           '& .MuiTableSortLabel-icon': {
             transition: 'transform 0.2s ease, opacity 0.2s',
@@ -211,24 +216,25 @@ const theme = createTheme({
     MuiTooltip: {
       styleOverrides: {
         tooltip: {
-          backgroundColor: '#1C1F2B',
-          border: '1px solid rgba(255,255,255,0.1)',
+          backgroundColor: '#111827',
+          border: 'none',
           fontSize: '0.72rem',
           fontWeight: 500,
+          boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
         },
       },
     },
     MuiTablePagination: {
       styleOverrides: {
-        root: { color: 'rgba(255,255,255,0.45)', fontSize: '0.8rem' },
-        selectLabel: { fontSize: '0.8rem', color: 'rgba(255,255,255,0.45)' },
-        displayedRows: { fontSize: '0.8rem', color: 'rgba(255,255,255,0.45)' },
+        root: { color: '#4B5563', fontSize: '0.8rem' },
+        selectLabel: { fontSize: '0.8rem', color: '#4B5563' },
+        displayedRows: { fontSize: '0.8rem', color: '#4B5563' },
         actions: {
           '& .MuiIconButton-root': {
-            color: 'rgba(255,255,255,0.4)',
+            color: '#4B5563',
             '&:not(:disabled):hover': {
-              color: '#6C63FF',
-              backgroundColor: 'rgba(108,99,255,0.12)',
+              color: '#2563EB',
+              backgroundColor: '#EFF6FF',
             },
             '&:disabled': { opacity: 0.25 },
           },
@@ -237,7 +243,7 @@ const theme = createTheme({
     },
     MuiDivider: {
       styleOverrides: {
-        root: { borderColor: 'rgba(255,255,255,0.06)' },
+        root: { borderColor: '#E5E7EB' },
       },
     },
   },
@@ -347,10 +353,10 @@ function AppContent() {
         position="sticky"
         elevation={0}
         sx={{
-          bgcolor: 'rgba(19,21,28,0.82)',
+          bgcolor: 'rgba(255,255,255,0.9)',
           backdropFilter: 'blur(14px)',
-          borderBottom: '1px solid rgba(255,255,255,0.06)',
-          boxShadow: '0 1px 24px rgba(0,0,0,0.35)',
+          borderBottom: '1px solid #E5E7EB',
+          boxShadow: '0 1px 2px rgba(0,0,0,0.05)',
         }}
       >
         <Toolbar sx={{ gap: 1.5, minHeight: '62px !important', px: { xs: 2, md: 3 } }}>
@@ -359,8 +365,8 @@ function AppContent() {
             <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
               <defs>
                 <linearGradient id="ff-g1" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#6C63FF" />
-                  <stop offset="100%" stopColor="#3B82F6" />
+                  <stop offset="0%" stopColor="#2563EB" />
+                  <stop offset="100%" stopColor="#1D4ED8" />
                 </linearGradient>
               </defs>
               {/* Back funnel (offset, lighter) */}
@@ -380,10 +386,7 @@ function AppContent() {
                 fontWeight: 800,
                 fontSize: '1.05rem',
                 letterSpacing: '-0.03em',
-                background: 'linear-gradient(135deg, #8B83FF 0%, #C0BAFF 45%, #60A5FA 100%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text',
+                color: '#111827',
                 lineHeight: 1.1,
               }}
             >
@@ -391,7 +394,7 @@ function AppContent() {
             </Typography>
             <Typography
               variant="caption"
-              sx={{ color: 'text.disabled', lineHeight: 1, display: 'block', mt: 0.1 }}
+              sx={{ color: '#6B7280', lineHeight: 1, display: 'block', mt: 0.1 }}
             >
               Dynamic Filter Engine
             </Typography>
@@ -406,9 +409,9 @@ function AppContent() {
               px: 1.75,
               py: 0.65,
               borderRadius: 20,
-              bgcolor: 'rgba(108,99,255,0.12)',
-              border: '1px solid rgba(108,99,255,0.32)',
-              boxShadow: '0 0 14px rgba(108,99,255,0.28)',
+              bgcolor: '#EFF6FF',
+              border: '1px solid #BFDBFE',
+              boxShadow: '0 1px 2px rgba(37,99,235,0.1)',
             }}
           >
             <Box
@@ -416,13 +419,13 @@ function AppContent() {
                 width: 7,
                 height: 7,
                 borderRadius: '50%',
-                background: 'linear-gradient(135deg, #6C63FF, #3B82F6)',
-                boxShadow: '0 0 6px rgba(108,99,255,0.7)',
+                background: '#2563EB',
+                boxShadow: '0 0 4px rgba(37,99,235,0.4)',
               }}
             />
             <Typography
               variant="caption"
-              sx={{ fontWeight: 700, color: '#a5b4fc', whiteSpace: 'nowrap', letterSpacing: '0.01em' }}
+              sx={{ fontWeight: 700, color: '#1D4ED8', whiteSpace: 'nowrap', letterSpacing: '0.01em' }}
             >
               {employees.length} employees
             </Typography>
@@ -434,7 +437,7 @@ function AppContent() {
       <Container maxWidth="xl" sx={{ py: { xs: 3, md: 4 }, px: { xs: 2, md: 3 } }}>
         {isLoading ? (
           <Box sx={{ display: 'flex', justifyContent: 'center', py: 12 }}>
-            <CircularProgress sx={{ color: '#6C63FF' }} />
+            <CircularProgress sx={{ color: '#2563EB' }} />
           </Box>
         ) : (
           <Stack spacing={3}>

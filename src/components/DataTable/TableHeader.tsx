@@ -36,12 +36,12 @@ const TableHeader: React.FC<TableHeaderProps> = ({ columns, sort, onSort }) => {
               sx={{
                 '&.MuiTableCell-head': {
                   // Highlight active sort column
-                  color: isActive ? '#8B83FF' : 'rgba(255,255,255,0.38)',
-                  textShadow: isActive ? '0 0 10px rgba(108,99,255,0.55)' : 'none',
+                  color: isActive ? '#2563EB' : '#6B7280',
+                  textShadow: 'none',
                   borderBottom: isActive
-                    ? '1px solid rgba(108,99,255,0.35)'
-                    : '1px solid rgba(255,255,255,0.06)',
-                  transition: 'color 0.2s, text-shadow 0.2s, border-color 0.2s',
+                    ? '1px solid #2563EB'
+                    : '1px solid #E5E7EB',
+                  transition: 'color 0.2s, border-color 0.2s',
                 },
               }}
             >
@@ -57,7 +57,7 @@ const TableHeader: React.FC<TableHeaderProps> = ({ columns, sort, onSort }) => {
                       // MUI auto-rotates 180deg when direction flips — smooth via transition
                     },
                     '&.Mui-active .MuiTableSortLabel-icon': {
-                      color: '#8B83FF',
+                      color: '#2563EB',
                     },
                   }}
                 >
