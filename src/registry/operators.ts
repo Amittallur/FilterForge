@@ -19,6 +19,7 @@ export const TEXT_OPERATORS: { value: TextOperator; label: string }[] = [
 
 export const NUMBER_OPERATORS: { value: NumberOperator; label: string }[] = [
   { value: 'eq', label: 'Equals (=)' },
+  { value: 'neq', label: 'Not equal (≠)' },
   { value: 'gt', label: 'Greater than (>)' },
   { value: 'gte', label: 'Greater than or equal (≥)' },
   { value: 'lt', label: 'Less than (<)' },
@@ -40,6 +41,7 @@ export const SELECT_OPERATORS: { value: SelectOperator; label: string }[] = [
 
 export const MULTISELECT_OPERATORS: { value: MultiSelectOperator; label: string }[] = [
   { value: 'in', label: 'Includes any of' },
+  { value: 'contains_all', label: 'Includes all of' },
   { value: 'not_in', label: 'Excludes all of' },
 ];
 
@@ -58,7 +60,6 @@ export const OPERATOR_MAP: Record<FieldType, { value: string; label: string }[]>
   boolean: BOOLEAN_OPERATORS,
 };
 
-/** Human-readable label for an operator value */
 export const OPERATOR_LABELS: Record<string, string> = {
   equals: 'equals',
   contains: 'contains',
@@ -66,6 +67,7 @@ export const OPERATOR_LABELS: Record<string, string> = {
   ends_with: 'ends with',
   not_contains: 'not contains',
   eq: '=',
+  neq: '≠',
   gt: '>',
   gte: '≥',
   lt: '<',
@@ -73,6 +75,7 @@ export const OPERATOR_LABELS: Record<string, string> = {
   between: 'between',
   is: 'is',
   is_not: 'is not',
-  in: 'includes',
+  in: 'includes any',
+  contains_all: 'includes all',
   not_in: 'excludes',
 };

@@ -18,7 +18,7 @@ export type TextOperator =
   | 'ends_with'
   | 'not_contains';
 
-export type NumberOperator = 'eq' | 'gt' | 'lt' | 'gte' | 'lte';
+export type NumberOperator = 'eq' | 'neq' | 'gt' | 'lt' | 'gte' | 'lte';
 
 export type DateOperator = 'between';
 
@@ -26,7 +26,7 @@ export type AmountOperator = 'between';
 
 export type SelectOperator = 'is' | 'is_not';
 
-export type MultiSelectOperator = 'in' | 'not_in';
+export type MultiSelectOperator = 'in' | 'contains_all' | 'not_in';
 
 export type BooleanOperator = 'is';
 
