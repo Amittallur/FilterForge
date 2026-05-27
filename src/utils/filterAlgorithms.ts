@@ -53,6 +53,8 @@ export function applyNumberFilter(
   switch (op) {
     case 'eq':
       return row === filter;
+    case 'neq':
+      return row !== filter;
     case 'gt':
       return row > filter;
     case 'gte':
@@ -169,6 +171,9 @@ export function applyMultiSelectFilter(
     case 'in':
       // row must contain at least one of the selected values
       return filterArr.some((f) => rowArr.includes(f));
+    case 'contains_all':
+      // row must contain EVERY selected value
+      return filterArr.every((f) => rowArr.includes(f));
     case 'not_in':
       // row must not contain any of the selected values
       return !filterArr.some((f) => rowArr.includes(f));
