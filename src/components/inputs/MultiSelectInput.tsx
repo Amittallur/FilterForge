@@ -40,6 +40,15 @@ const MultiSelectInput: React.FC<FilterInputProps> = ({ condition, config, onCha
             )}
           </React.Fragment>
         )}
+        MenuProps={{
+          slotProps: {
+            paper: {
+              style: {
+                maxHeight: 250,
+              },
+            },
+          },
+        }}
         inputProps={{ 'aria-label': `${config.label} multiselect filter` }}
       >
         {options.map((opt) => (
